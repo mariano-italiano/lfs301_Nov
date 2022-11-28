@@ -1,0 +1,5 @@
+[myRepo]
+name = Moje lokalne repozytorium
+baseurl = file:///root/RPMs/repodata
+gpgcheck = 0
+enabled = 1
