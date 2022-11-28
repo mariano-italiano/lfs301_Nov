@@ -1,0 +1,174 @@
+pwd
+whoami
+su - student
+cd katalog`
+cd katalog1
+cd /katalog1
+cd ..
+pwd
+cd
+ls
+ls -la
+ls -l
+cat anaconda-ks.cfg
+less anaconda-ks.cfg
+more anaconda-ks.cfg
+ls -l
+touch anaconda-ks.cfg
+ls -l
+man wget
+mkdir solutions
+cd solutions
+wget --user LFtraining --password Penguin2014 https://training.linuxfoundation.org/cm/LFS301/
+cd
+ls -la
+ls -l
+touch plik1
+ls -la
+vi plik1
+ls -l
+ls -l > wyjscie.std
+cat wyjscie.std
+ls -l >> wyjscie.std
+cat wyjscie.std
+uptime > wyjscie.std
+cat wyjscie.std
+vi /etc/logrotate.conf
+vi /etc/logrotate.d/dnf
+ls -la >& wyjscie.tlo
+su - student
+ls -la
+cat plik1
+sed -h
+cat
+cat plik1
+sed 's/test/test123/g' plik1
+sed -i 's/test/test123/g' plik1
+vi plik1
+sed 's/bar/noweslowo/gI' plik1
+vi plik1
+cat plik1
+sed 's|/bin/bash|/bin/ksh|g' plik1
+sed 's$/bin/bash$/bin/ksh$g' plik1
+sed 's$/bin/sh$/bin/ksh$g' plik1
+sed 's/\b[0-9]\{3\}\b/number/g' plik1
+vi  plik1
+sed 's/\b[0-9]\{3\}\b/number/g' plik1
+sed 's/\b[0-9]\{3\}\b/liczba {&}/g' plik1
+cat plik1 | grep -i bar
+cat plik1 | grep -i bar -n
+grep -i bar -n plik1
+vi /etc/chrony.conf
+grep -v "#" /etc/chrony.conf
+grep -i -n ^pool /etc/chrony.conf
+grep -i -n ^server /etc/chrony.conf
+grep -i ^permitrootlogin /etc/ssh/sshd_config
+grep :home/.*: /etc/passwd
+grep -i :home/.*: /etc/passwd
+grep -i home/.*: /etc/passwd
+useradd piotr
+grep -i home/.*: /etc/passwd
+man find
+find / -name "plik1"
+find / -name "e1000*"
+find / -name "plik1" -exec mv {} /tmp/ \;
+ls -la /root/
+ls -la /tmp
+find /home -type f -name ".bashrc"
+find -h
+find --help
+id student
+find / -type d -uid 1000
+find /home -type d -uid 1000
+clear
+find /home -type d -uid 1000
+find /home -type d -uid 1000 | grep -v "."
+man find
+find /home -type d -uid 1000 -empty
+find /home -type d -uid 1000 -empty | wc -l
+man find
+find /home -type d -uid 1000 -empty -maxdepth 2
+mkdir test
+ls -la
+rmdir test
+ls -l
+mkdir test
+touch test/plik1
+rmdir test/
+rm -rf test/
+ls -l
+mv wyjscie.std wyjscie
+ls -l
+mv wyjscie /tmp/plik1
+mv wyjscie /tmp/plik2
+ls -l /home/student/errors.log
+cp -rp /home/student/errors.log .
+ls -la
+cp /home/student/errors.log .
+ls -la
+alias
+rm errors.log
+cp /home/student/errors.log .
+ls -la
+alias
+alias pokazmidate=date
+pokazmidate
+date
+unalias pokazmidate
+pokazmidate
+wget  http://vault.centos.org/7.9.2009/os/Source/SPackages/createrepo-0.9.9-28.el7.src.rpm 
+ls -la
+rpm -ivh createrepo-0.9.9-28.el7.src.rpm 
+wget http://mirror.stream.centos.org/9-stream/AppStream/x86_64/os/Packages/createrepo_c-0.17.2-5.el9.x86_64.rpm
+rpm -ivh createrepo_c-0.17.2-5.el9.x86_64.rpm 
+dnf install createrepo
+wget http://mirror.centos.org/centos/7/os/x86_64/Packages/telnet-0.17-65.el7_8.x86_64.rpm
+rpm -ivh telnet-0.17-65.el7_8.x86_64.rpm 
+rpm -qa |sort
+rpm -qa |grep -i nano
+rpm -e nano
+rpm -qa |grep -i nano
+nano
+dnf install nano
+dnf install nano -y
+rpm -Va nano 
+rpm -h
+rpm --help
+rpm -qa | grep -i nano
+rpm -V nano 
+dnf search netstat
+dnf search nano
+dnf provides nano
+dnf provides smbpasswd
+dnf info samba-common-tool
+dnf info samba-common-tools
+dnf remove nano
+nf localinstall telnet-server-1:0.17-85.el9.x86_64 ls -la
+ls -la
+dnf localinstall telnet-0.17-65.el7_8.x86_64.rpm
+
+dnf localinstall telnet-0.17-65.el7_8.x86_64.rpm --nobest
+dnf localinstall telnet-0.17-65.el7_8.x86_64.rpm --nobest --skip-broken
+vi /etc/yum.repos.d/centos.repo 
+dnf repolist
+dnf config-manager --help
+dnf repolist
+dnf config-manager --disablerepo epel
+dnf config-manager --disable epel
+dnf repolist
+vi /etc/yum.repos.d/centos.repo 
+vi /etc/yum.repos.d/epel.repo 
+dnf repolist
+ls
+mkdir RPMs
+mv *.rpm RPMs
+cd RPMs/
+ls -la
+createrepo /root/RPMs/
+ls -la
+ls -la repodata
+vi /etc/yum.repos.d/myRepo.repo
+vi /etc/yum.repos.d/myRepo.repo
+dnf repolist
+
+
