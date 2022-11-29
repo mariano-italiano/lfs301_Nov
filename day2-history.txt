@@ -241,3 +241,285 @@ ls -la
 history
 history | awk '$1 > 1075' | cut -c 8-
 history | awk '$1 > 1075' | cut -c 8- > day2-history.txt 
+git add .
+git commit -m "Adding day2 history file"
+git push
+cd
+clear
+journalctl 
+journalctl -b
+journalctl /sbin/sshd
+journalctl -p err
+journalctl --since"-10min"
+journalctl --since "-10min"
+journalctl --since "-60min"
+journalctl --since "today"
+journalctl -o verbose /sbin/sshd
+which chronyd
+journalctl -o verbose /usr/sbin/chronyd
+journalctl -u  /usr/sbin/chronyd
+journalctl /usr/sbin/chronyd
+journalctl -o verbose /usr/sbin/chronyd
+journalctl --since "-45min" _SYSTEMD_UNIT=chronyd.service
+journalctl --since "-90min" _SYSTEMD_UNIT=chronyd.service
+journalctl --since "today" _SYSTEMD_UNIT=chronyd.service
+systemd-analyze 
+systemd-analyze blame
+cd  /var/log/
+ls -la
+cd /run/log/journal/
+ls -la
+cd 7222932c08884c78930162b6efb54242
+ls -la
+less system.journal
+mkdir /var/log/journal
+cd /var/log/journal
+ls -la
+systemctl restart systemd-journal
+systemctl restart systemd-journald
+ls -la
+pwd
+vi /etc/systemd/journald.conf 
+systemctl restart systemd-journald
+cd
+history | awk '$1 > 1075' | cut -c 8- > day2-history.txt 
+df -h
+df -hT
+blkid
+swapon -s
+lsblk
+cat /proc/partitions 
+fdisk /dev/sdb 
+fdisk /dev/sdb
+fdisk /dev/sdb -l
+gdisk /dev/sdb
+wipefs --help
+wipefs -a /dev/sdb
+gdisk /dev/sdb
+cat /proc/partitions 
+df -h
+pvcreate /dev/sdb
+pvs
+vgcreate vg01 /dev/sdb 
+vgs
+pvs
+vgdisplay vg01 
+vgcreate --help
+vgcreate vg02 -s 1M /dev/sdb
+vgremove vg01\
+vgremove vg01
+vgcreate vg01 -s 1M /dev/sdb
+vgdisplay 
+vgchange -s 4M vg01
+vgdisplay 
+vgchange -s 2M vg01
+vgchange -s 8M vg01
+lvcreate -l 100 -n lv01 /dev/vg01/
+lvcreate -l 100 -n lv01 vg01
+lvcreate -L 30M -n lv02 vg01
+lvcreate -l 100%FREE -n lv03 vg01
+lvs
+lvremove lv03
+lvremove /dev/vg01/lv03
+lvs
+mkdir /lvm/lv01 /lvm/lv02 -p
+lvs
+cd /dev/mapper/
+ls -la
+cd
+mkfs.ext4 /dev/vg01/lv01
+mount /dev/vg01/lv01 /lvm/lv01
+df -h
+df -hT
+mkfs.xfs /dev/mapper/vg01-lv02 
+mount /dev/mapper/vg01-lv02 /lvm/lv02
+df -hT
+lvs
+vgs
+cd /lvm/lv01
+dd if=/dev/urandom of=bigfile bs=1024 count=2
+dd if=/dev/urandom of=bigfile bs=1024M count=2
+df -h
+dd if=/dev/urandom of=bigfile2 bs=1024M count=1
+df -h
+vgs
+lvextend -L 1G lv01
+lvextend -L 1G /dev/vg01/lv01
+lvs
+df -h
+resize2fs /dev/vg01/lv01
+df -h
+cd ../lv02
+dd if=/dev/urandom of=bigfile bs=1024M count=3
+df -h
+lvextend -L +500M /dev/vg01/lv02
+resize2fs /dev/vg01/lv02
+xfs_growfs /dev/vg01/lv02
+df -h
+df -hT
+umount /lvm/lv01
+umount /lvm/lv02
+cd
+umount /lvm/lv02
+df -hT
+blkid
+lsblk
+mount /dev/vg01/lv02 /lvm/lv02/
+df -h
+cd /lvm/lv02/
+ls -la
+touch plik1
+mkdir folder 1
+ls -la
+echo "asidn sadifb asoifb asifbaosydfbv sda" > plik1 
+ls -la
+cd
+xfsdump -f /tmp/lvm02.dump /lvm/lv02
+ls -la /tmp/lvm02.dump 
+ls -la /tmp/lvm02.dump h
+ls -hla /tmp/lvm02.dump 
+df -h
+umount /lvm/lv02 
+lvreduce -L 300M /dev/vg01/lv02
+lvs
+mkfs.xfs /dev/vg01/lv02
+mkfs.xfs /dev/vg01/lv02 -f
+mount /dev/vg01/lv02 /lvm/lv02
+cd /lvm/lv02
+ls -la
+cd
+xfsrestore -f /tmp/lvm02.dump /lvm/lv02
+df -hT
+cd /lvm/lv02
+ls -la
+cd
+df -h
+umount /lvm/lv02
+df -h
+vi /etc/fstab 
+blkid
+vi /etc/fstab 
+mount -a
+df -h
+umount /lvm/lv01
+umount /lvm/lv02
+df -h
+vi /etc/fstab 
+mount -a
+df -h
+vi /etc/fstab 
+df -h
+mount -a
+df -h
+mount
+mount | grep mapper
+cd /lvm/lv02
+ls -la
+touch rwfile
+cd
+mount -o remount,ro /lvm/lv02
+mount | grep mapper
+cd
+cd /lvm/lv02
+cat rwfile 
+vi rwfile 
+touch rwfile2
+cd
+mount -o remount,rw /lvm/lv02
+mount | grep mapper
+blkid
+e2label /dev/vg01/lv01 DataDisk
+blkid
+vi /etc/fstab 
+df -h
+umoun /lvm/lv01
+umount /lvm/lv01
+df -hT
+mount -a
+df -ht
+df -hT
+blki
+blkid
+xfs_admin -L XfsPart /lvm/lv02
+xfs_admin -L XfsPart /dev/mapper/vg01-lv02
+umount /lvm/lv02
+xfs_admin -L XfsPart /dev/mapper/vg01-lv02
+mount -a
+df -hT
+blki
+blkid
+xfs_info /dev/vg01/lv02
+e4defrag -h
+e4defrag -c /var/log
+e4defrag  /var/log
+e4defrag -c /var/log
+e4defrag -c /
+xfs_db --help
+man xfs_db 
+xfs_db -r /dev/vg01/lv02
+man xfs_fsr 
+cat /proc/mounts 
+xfs_fsr -m /dev/mapper/vg01-lv02 -t 60 
+vi /etc/mtab
+xfs_fsr -m /lvm/lv02 -t 60 
+vi /etc/mtab
+xfs_fsr -m /proc/mounts -t 120
+xfs_fsr /dev/mapper/vg01-lv02
+cd /lvm/
+ls -la *
+cd lv02
+ls -lh
+cd ../lv01
+ls -lh
+lvcreate -L 1G vg01 -n lv_swap
+lvs
+mkswap /dev/mapper/vg01-lv_swap 
+swapon -s
+swapon /dev/mapper/vg01-lv_swap
+swapon -s
+mkswap bigfile
+swapon bigfile
+swapon -s
+swapoff /dev/dm-2
+swapon /dev/dm-2
+swapon -s
+blkid
+vi /etc/fstab 
+swpaon -s
+swapon -s
+swapoff /lvm/lv01/bigfile
+swapoff /dev/dm-2
+swapon -s
+swapon -a
+swapon -s
+df -h
+cd
+lvs
+lvremove lv01
+lvremove /dev/vg01/lv01
+umount /lvm/lv01
+umount /lvm/lv02
+lvremove /dev/vg01/lv01
+lvremove /dev/vg01/lv02
+vgremove vg01
+vgcreate --help
+vgs
+vgreduce 
+vgreduce --help
+vgremove vg01
+lvremove /dev/vg01/lv_swap 
+swapoff /dev/vg01/lv_swap
+lvremove /dev/vg01/lv_swap 
+vgremove vg01
+pvremove
+pvremove /dev/sdb 
+wipefs -a /dev/sdb
+fdisk /dev/sdb
+pvcreate /dev/sdb1
+partprobe 
+pvcreate /dev/sdb
+partprobe /dev/sdb1
+history | awk '$1 > 1075' | cut -c 8- > day2-history.txt 
+cd lfs301_Nov/
+cat day2-history.txt | wc -l
+history | awk '$1 > 1075' | cut -c 8- > day2-history.txt 
