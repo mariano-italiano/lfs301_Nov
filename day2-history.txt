@@ -1,0 +1,243 @@
+dnf grouplist
+dnf group install "System Tools"
+dnf grouplist
+dnf history
+dnf history undo 62
+dnf history undo 63
+dnf history undo 62
+dnf history 
+dnf repolist
+dnf module list
+dnf module install nodejs
+dnf install nodejs
+dnf module install nodejs:14/minimal\
+dnf module install nodejs:14/minimal
+dnf module reset nodejs
+dnf module install nodejs:14/minimal
+dnf module install nodejs:14/development
+dnf module install nodejs:14/common
+dnf module install nodejs:12/development
+dnf module reset nodejs
+dnf module install nodejs:12/development
+dnf module remove nodejs
+cat /etc/redhat-release 
+dnf upgrade
+dnf update
+dnf update --allowerasing
+dnf update --allowerasing --nobest
+dnf distr-sync
+dnf distro-sync
+clear
+dnf update --allowerasing --nobest
+git config user.name "Marcin"
+git --global config user.name "Marcin"
+git config --global  user.name "Marcin"
+git config --global  user.email "markuj5@gmail.com"
+git config --global credential.helper
+git config --global credential.helper store
+git clone https://github.com/mariano-italiano/lfs301_Nov.git
+cd lfs301_Nov/
+ls -la
+vi .git/config 
+vi .git/branches/
+git branch
+git status
+ls -la
+git pull
+ls -la
+mkdir app
+vi app/sourceCode.py
+git status
+git add -A
+git status
+git commit -m "First app commit"
+git push
+git status
+git pull
+git checkout -b final
+git branch
+ls -la
+rm day1-history.txt
+rm myRepo.repo 
+rm READEME.md 
+git status
+git add -A
+git status
+git commit -m "Remove not app related files"
+git push
+git push --set-upstream origin final
+git pull
+git  branch
+git checkout bugfix-1
+ls -la
+cd app/
+ls
+vi sourceCode.py 
+git status
+git add -A
+git status
+git commit -m "Fixing bug with first line"
+git push
+git status
+git checkout final
+git pull
+git branch
+git branch --merged
+git remote prune origin
+git branch
+git branch --help
+git fetch
+git branch
+git fetch
+git branch -D bugfix-1
+git branch
+git pull
+git branch
+git checkout bugfix-2
+git branch
+git checkout final
+git push origin --delete bugfix-2
+git pull
+git checkout bugfix-2
+git status
+vi sourceCode.py 
+git status
+git add ..
+git add .
+git commit -m "Last commit"
+git push
+git checkout final
+git merge bugfix-2
+git push
+git push origin --delete bugfix-2
+git branch -D bugfix-2
+git branch
+cd
+ls -la
+less errors.log
+head -3 errors.log
+tail -10 errors.log
+tail -f errors.log
+nmap 192.168.1.81
+telnet centos8 22
+telnet centos8 8080
+curl -v telnet://centos8:8080
+curl -v telnet://centos8:22
+ip a
+ethtool -S ens160
+ip -s link
+ip -s link ens160
+ip -s link 
+netstat -h
+netstat -vatnu
+netstat -vatnulp
+ss -vantulp
+ss -vantul
+ss -vantup
+ss -ltuna
+ss -ltunap
+ss -vantup
+netstat -vatnulp
+dnf install netstat
+dnf provides netstat
+iostat
+netstat
+netstat -i
+ip -s link
+vmstat 
+vmstat --help
+vmstat 5 3
+sar -A
+sar -h
+sar --help
+sar -v 3 5
+sar -d 1 5
+sar -b 1 5
+sar -W 1 5
+free -m
+vi /etc/crontab 
+vi /etc/cron.daily/
+find / -name systat
+cd /etc/cron.d
+s
+ls
+vi 0hourly 
+cd
+top
+top -s
+top -h
+top --help
+man top
+top -u student
+cat /proc/meminfo 
+cat /proc/cpuinfo 
+cd /var/log
+ls -la
+ls -la | uniq 
+ls -la
+less boot.log
+less sssd/sssd.log
+less secure
+tail -f secure
+ls -la
+less lastlog 
+lastlog
+cd
+dnf install tuned
+systemctl start tuned
+systemctl status tuned
+tuned-adm active
+tuned-adm alist
+tuned-adm list
+tuned-adm profile balanced 
+tuned-adm active
+tuned-adm recommend 
+tuned-adm profile virtual-guest 
+tuned-adm off
+tuned-adm active
+tuned-adm profile virtual-guest 
+tuned-adm active
+pstree
+ls -li
+cat /proc/filesystems 
+man dd
+df -hT
+vi plik1
+vi plik2
+ln -s plik1 symlink
+ls -la
+ls -la /usr/
+ls -li 
+vi symlink 
+rm plik1
+ls -la
+cat symlink
+vi symlink
+cat symlink
+ls -la
+ls -li
+ln plik2 hardlink
+ls -li
+cat hardlink 
+cat plik2
+vi plik2
+cat hardlink 
+cat plik2
+vi hardlink 
+ln plik2 /home/student/Downloads/hardlinkStudent
+chown student  /home/student/Downloads/hardlinkStudent
+cat plik2
+find / -inum 1049619
+rm plik2
+find / -inum 1049619
+cat /root/hardlink
+sysctl -a | grep inod
+cd lfs301_Nov/
+ls -la
+git status
+git checkout  master 
+ls
+ls -la
+history
+history | awk '$1 > 1075' | cut -c 8-
+history | awk '$1 > 1075' | cut -c 8- > day2-history.txt 
