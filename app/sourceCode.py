@@ -1,2 +1,2 @@
-print("Test app")
+print("Test application")
 print("Exit")
