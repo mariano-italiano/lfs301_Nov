@@ -1,2 +1,6 @@
 print("Test application")
+print("Test application")
+print("Test application")
+print("Test application")
+print("Test application")
 print("Exit")
