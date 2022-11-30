@@ -1,0 +1,293 @@
+mkdir /var/log/journal
+ls -la /run/log/journal/7222932c08884c78930162b6efb54242/
+systemctl restart systemd-journald
+ls -la /run/log/journal/7222932c08884c78930162b6efb54242/
+ls -la /var/log/journal
+mkdir /nfs
+ping centos8-2
+vi /etc/hosts
+ping centos8-2
+showmount -L centos8-2
+showmount -e centos8-2
+mount centos8-2:/srv/nfs-share /nfs
+df -hT
+cd /nfs
+ls -la
+mkdir c81kat
+touch plik1
+ls -la
+vi /etc/fstab 
+umount /nfs 
+cd
+umount /nfs 
+df -h
+mount -a
+df -hT
+man mount
+cd /proc/sys/vm
+ls
+free -m
+git config --global core.hookspath 'hooks' && git config --global credential.helper store && git config --global submodule.recurse true
+git config --global user.email "markuj5@gmail.com"
+git config --global user.name "marcin"
+cd ;git clone 
+cd ;git clone https://github.com/mariano-italiano/lfs301_Nov.git
+cd lfs301_Nov/
+ls -la
+clear
+cd
+du -sh /home/*
+du -sh /home/* | grep G
+lsmod | grep -i crypt
+modprobe dm_crypt
+lsmod | grep -i crypt
+cat /proc/partitions 
+dd if=/dev/urandom of=/dev/sdb bs=4096
+cryptsetup --version
+cryptsetup -y luksFormat /dev/sdb
+cryptsetup luksOpen /dev/sdb secret_data
+ls -al /dev/mapper/
+mkfs.xfs /dev/mapper/secret_data 
+mkdir /luks
+mount /dev/mapper/secret_data /luks/
+df -Th
+cd /luks
+ls -la
+cd
+umount /luks 
+cryptsetup luksClose secret_data 
+cryptsetup luksOpen /dev/sdb luks
+ls -al /dev/mapper/
+mount /dev/mapper/luks /luks/
+fdisk /dev/sdb
+vi /etc/lvm/lvm.conf 
+cd /etc/lvm/backup/
+ls -la
+vgcfgbackup --help
+cd
+wipefs -a /dev/sdb
+df -h
+umount /luks 
+wipefs -a /dev/sdb
+cryptsetup luksClose luks
+wipefs -a /dev/sdb
+cat /proc/partitions 
+dnf install mdadm -y
+mdadm --help
+man mdadm
+mdadm -E /dev/sd[b-d]
+mdadm --create /dev/md5 --level=5 --raid-devices=3 /dev/sd[b-d]
+ls -la /dev/mapper/
+mdadm -D /dev/md5
+cat /proc/mdstat 
+mkfs.ext4 /dev/md5
+mkdir /raid5
+mount /dev/md5 /raid5
+cd /raid5/
+ls -la
+cd
+cat /proc/partitions 
+mdadm --manage --add /dev/md5 /dev/sde
+mdadm -D /dev/md5
+cd /raid5/
+ls -la
+df -h
+cd /tmp
+ls -la
+du -sh *
+cd /raid5/
+cd
+mdadm --manage --fail /dev/md5 /dev/sdc
+mdadm -D /dev/md5
+mdadm -D /dev/md5 --scan --verbose >> /etc/mdadm.conf
+vi /etc/mdadm.conf 
+blkid
+sysctl -a
+sysctl -a | wc -l
+sysctl -a | grep -i kernel.pid
+ps -ef
+sysctl -a | grep -i kernel.pid
+sysctl -a | grep -i kernel.thread
+sysctl -a | grep -i ipv4.for
+sysctl -a | grep -i forward
+echo "1" > /proc/sys/net/ipv4/ip_forward
+sysctl -a | grep -i ip_forward
+vi /etc/sysctl.d/99-sysctl.conf 
+vi /etc/sysctl.conf 
+echo "0" > /proc/sys/net/ipv4/ip_forward
+sysctl -a | grep -i ip_forward
+vi /etc/sysctl.conf 
+sysctl -a | grep -i ip_forward
+sysctl -p
+sysctl -a | grep -i ip_forward
+sysctl -a | grep -i icmp_echo
+vi /etc/sysctl.d/
+sysctl -p
+mv /etc/sysctl.d/disable_icmp_echo.conf /etc/sysctl.d/01-sysctl.conf
+sysctl -p
+rm /etc/sysctl.d/01-sysctl.conf
+vi /etc/sysctl.conf 
+sysctl -p
+vi /etc/sysctl.conf 
+sysctl -p
+sysctl -a | grep -i ttl
+sysctl -a | grep -i swap
+sysctl -a | grep -i huge
+cd /proc/sys
+ls 
+cd fs
+ls -la
+sysctl -a | grep -i quota
+sysctl -a | grep -i xfs
+man sysctl
+man sysctl(5)
+man 5 sysctl
+cd
+lsmod
+lsmod | sort
+cd /lib/modules
+ls -la
+uname -r
+cd 4.18.0-240.22.1.el8_3.x86_64
+ls -la
+find . -type f -name '*.ko*'
+ls -la
+cd kernel
+ls -la
+cd net/
+ls -la
+find . -type f -name '*e1000*'
+find . -type f -name '*.ko*'
+find . -type f -name '*.ko*' | grep e1000
+find . -type f -name '*.ko*' | grep e100
+find . -type f -name '*.ko*' | grep -i e100
+modinfo e1000
+modinfo dm_crypt
+modinfo vmxnet3
+modprobe --help
+q
+insmod --help
+cd
+modprobe e1000
+lsmod | grep e100
+modprobe -r e1000
+lsmod | grep e100
+sysctl -a | grep echo
+ip a
+cat /etc/passwd
+id 
+id student
+dnf install finger
+vi /etc/default/
+vi /etc/default/useradd 
+cat /etc/passwd | grep student
+ls -la /etc/shadow
+cat /etc/shadow | grep -i student
+cat /etc/shadow 
+
+date -d @19299
+passwd student
+cat /etc/shadow | grep -i student
+date -d @19326
+which adduser
+useradd --help
+useradd -g wheel -d /var/pioter -s /bin/sh -c "Testowy user" pioter
+id pioter
+cat /etc/group
+usermod -g student -u 1200 -G sshd pioter
+id pioter 
+cat /etc/passwd | grep pioter
+su - pioter
+userdel --help
+userdel -r pioter
+mkdir /customskel
+cd /customskel
+mkdir config
+vi ansible.conf\
+vi ansible.conf
+cd
+useradd -help
+useradd -k /customskel/ alicja
+useradd -m -k /customskel/ alicja
+cat /etc/passwd | grep -i alic
+ls -la /home/alicja/
+cd /etc/skel/
+ls -la
+cd
+id alicja
+usermod -G student, sshd alicja
+usermod -G student sshd alicja
+usermod -G student alicja
+id student
+id alicja
+usermod -G sshd alicja
+id alicja
+usermod -aG student alicja
+id alicja
+passwd alicja
+vi /etc/profile.d/sh.local 
+chage -h
+chage -M 5 alicja
+chage -l alicja
+chage -d 0 alicja
+chage -l alicja
+vi /etc/login.defs 
+ls -la
+touch test
+ls -l test
+vi /etc/login.defs 
+cat /etc/passwd
+usermod -s /sbin/nologin alicja
+groupadd -h
+groupadd -g 1500 finanse
+groupadd ksiegowosc
+cat /etc/group
+usermod -aG finanse alicja
+id alicja
+vi /etc/group
+id student
+id alicja
+id wgeel
+id wheel
+whoami
+vi /etc/sudoers
+vi /etc/sudoers.d/student 
+vi /etc/sudoers
+visudo
+vi /etc/passwd
+useradd bob
+su - bob
+passwd bob
+su - bob
+passwd jan
+useradd jan
+visudo
+su - jan
+vi /etc/sudoers.d/finanse
+id bob
+usermod -aG finanse bob
+passwd jan
+su - bob
+vi /etc/sudoers.d/finanse
+usermod -aG finanse jan
+su - jan
+visudo
+vi /etc/sudoers.d/finanse
+su - jan
+vi /etc/sudoers.d/finanse
+visudo
+vi /etc/sudoers.d/finanse
+visudo
+vi /etc/sudoers.d/finanse
+id jan
+su - jan
+which yum
+visudo
+su - jan
+vi /etc/default/
+clear
+ls 
+cd lfs301_Nov/
+less day2-history.txt 
+history
+history | awk '$1 > 791' | cut -c 8- > day3-history.txt
