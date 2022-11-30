@@ -291,3 +291,163 @@ cd lfs301_Nov/
 less day2-history.txt 
 history
 history | awk '$1 > 791' | cut -c 8- > day3-history.txt
+git status
+git add .
+git commit -m "Adding day3 history file"
+git push
+cd
+clear
+ls -l
+id bob
+chmod +x test
+ls -l
+chmod +wx test
+ls -l
+chmod go+w test
+ls -l
+chmod 644 test
+ls -l
+chmod u+x test 
+ls -l
+chmod u-r test 
+ls -l
+chmod u+r g+w o-r test 
+chmod u+r test 
+chmod g+w test 
+chmod o-r test 
+ls -l
+chmod o+rx test 
+ls -l
+chmod 644 test
+ls -la
+ls -l
+chgrp student test
+ls -l
+chown bob test
+ls -l
+chown bob:finanse test
+ls -la
+ls -l
+vi /etc/profile
+umask
+touch plik
+ls -la
+ls -l
+umask 0266
+touch plik1
+ls -l
+umask 0022
+ls -l /tmp
+ls -l /
+su - bob
+su - student
+cd /tmp
+ls -l *file
+ls -l 
+ls -l ../
+su - student
+su - bob
+mkdir /shared
+ls -l /shared
+ls -l /
+chmod 1755 /shared/
+ls -l /
+chmod 1754 /shared/
+ls -l /
+chmod 1755 /shared/
+ls -l /
+chmod 0755 /shared/
+ls -l /
+which passwd
+ls -la /usr/bin/passwd
+cd
+ls -l /shared/
+ls -l /s
+ls -l /
+chmod 2755 /shared/
+ls -l /
+chgrp finanse /shared
+ls -l /
+cd /shared/
+touch rootfile
+ls -la
+chmod 2770 /shared
+chmod 2770 /shared -R
+ls -la
+chmod 2760 /shared -R
+ls -la
+su - bob
+chmod 2770 /shared -R
+ls -la
+su - bob
+cd
+cd /tmp
+mkdir acl1 acl2
+ls -la
+getfacl acl1
+setfacl -m u:student:w acl1
+getfacl acl1
+ls -l acl
+ls -l acl*
+ls -l acl1
+ls -l /tmp
+su - student
+setfacl -x u:student /tmp/acl1
+su - student
+setfacl -m u:student:rwx acl1
+su - student
+setfacl -m g:finanse:rx /tmp/acl2
+su - bob
+setfacl -m u:bob:w /tmp/acl2
+su - bob
+setfacl -m u:bob:rwx /tmp/acl2
+su - bob
+cd; cd 
+cd lfs301_Nov/
+history | awk '$1 > 791' | cut -c 8- > day3-history.txt
+cd
+clear
+hostnamectl status
+hostnamectl set-hostname centos8
+hostnamectl set-hostname centos8-1
+ip a s
+ip address show 
+ip a s
+ifconfig 
+ip address add 10.10.10.10/24 dev ens160 
+ip a s
+ifconfig 
+ip a a 172.16.1.10/24 dev ens
+ip a a 172.16.1.10/24 dev ens160
+ip a 
+ip link set ens160 up
+ip route show
+route -n
+ip route add 10.10.10.0/24 via 10.10.10.1 
+ip route add 10.10.10.0/24 via 192.168.1.240
+ip route add 10.10.10.0/24 via 192.168.1.240 dev ens160
+ip a s
+nmcli connection down ens160 ; nmcli connection up ens160 
+ip a
+route -n
+
+ip route add 10.10.10.0/24 via 192.168.1.240 dev ens160
+route -n
+traceroute 10.10.10.1 -I
+ping 192.168.1.240
+ip route add 172.16.1.0/25 via 192.168.1.241
+route -n
+vi /etc/resolv.conf 
+ping wp.pl
+nmcli connection down ens160 ; nmcli connection up ens160 
+vi /etc/resolv.conf 
+nmcli
+nmcli connection show
+nmcli device show
+nmcli device status
+nmcli connection add con-name DMZ ifname ens160 type ethernet ipv4.addresses 192.168.1.181/24 gw 192.168.1.1 dns 192.168.1.1
+nmcli connection add con-name DMZ ifname ens160 type ethernet ipv4.addresses 192.168.1.181/24 gw 192.168.1.1 
+nmcli connection add con-name DMZ ifname ens160 type ethernet ipv4.addresses 192.168.1.181/24 gw4 192.168.1.1 dns4 192.168.1.1
+nmcli connection add con-name DMZ ifname ens160 type ethernet ipv4.addresses 192.168.1.181/24 gw4 192.168.1.1 ipv4.dns 192.168.1.1
+nmcli connection show
+history | awk '$1 > 791' | cut -c 8- > lfs301_Nov/day3-history.txt
