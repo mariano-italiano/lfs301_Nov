@@ -451,3 +451,140 @@ nmcli connection add con-name DMZ ifname ens160 type ethernet ipv4.addresses 192
 nmcli connection add con-name DMZ ifname ens160 type ethernet ipv4.addresses 192.168.1.181/24 gw4 192.168.1.1 ipv4.dns 192.168.1.1
 nmcli connection show
 history | awk '$1 > 791' | cut -c 8- > lfs301_Nov/day3-history.txt
+nmcli connection modify DMZ ipv4.addresses 172.16.10.10/24
+nmcli connection modify DMZ ipv4.gateway 172.16.10.1
+nmcli connection modify DMZ ipv4.dns-search lab.local
+nmcli connection edit DMZ 
+nmcli connection show DMZ 
+nmcli connection edit DMZ 
+nmcli connection show DMZ 
+history 
+ls -la
+less .nmcli-history
+nmtui
+nmtui-edit
+nmcli connection show Internet 
+nmtui-edit
+nmcli connection show Internet 
+nmtui-edit
+nmtui
+nmtui-edit
+nmcli connection show 
+nslookup google.com
+nslookup centos8
+vi /etc/hosts
+nslookup centos8
+ping centos8
+vi /etc/hosts
+ping centos8
+vi /etc/hosts
+ping google.com
+vi /etc/nsswitch.conf
+ping google.com
+nslookup 
+dig -t mx wp.pl
+history | awk '$1 > 791' | cut -c 8- > day3-history.txt
+vi day3-history.txt
+systemctl status firewalld
+dnf install firewalld
+systemctl start firewalld.service 
+systemctl status firewalld
+firewall-cmd --list-all
+cd /usr/lib/firewalld/services/
+ls
+less cockpit.xml
+cd ../zones/
+ls -la
+firewall-cmd --get-zones
+vi public.xml
+firewall-cmd --list-all
+firewall-cmd --reload 
+firewall-cmd --list-all
+vi public.xml
+firewall-cmd --reload 
+firewall-cmd --list-all
+firewall-cmd --add-service=nfs --permanent 
+firewall-cmd --reload 
+firewall-cmd --list-all
+vi public.xml 
+ls -la
+cd
+firewall-cmd --get-default-zone 
+firewall-cmd --set-default-zone=home
+firewall-cmd --list-all
+firewall-cmd --zone=trusted --list-all
+firewall-cmd --zone=work --list-all
+firewall-cmd --add-port=123/tcp --permanent 
+firewall-cmd --reload 
+firewall-cmd --list-all
+vi /etc/firewalld/zones/public.xml
+firewall-cmd --list-all
+firewall-cmd --reload 
+firewall-cmd --list-all
+vi /etc/firewalld/zones/home.xml 
+firewall-cmd --reload 
+firewall-cmd --list-all
+firewall-cmd --service=myApp --set-description="My own app for sth"
+firewall-cmd --service=myApp --set-description="My own app for sth" --permanent
+firewall-cmd --permanent --service=app --set-description="My own app for sth"
+firewall-cmd --permanent --service=app --set-port=8080/tcp
+firewall-cmd --permanent --service=app --add-port=8080/tcp
+vi /etc/firewalld/services/
+cp -rp /usr/lib/firewalld/services/ssh.xml /etc/firewalld/services/myApp.xml
+vi /etc/firewalld/services/myApp.xml
+firewall-cmd --permanent --service=app --add-port=8090/udp
+firewall-cmd --permanent --service=myApp --add-port=8090/udp
+firewall-cmd --permanent --service=myApp --add-source=192.168.1.1
+firewall-cmd --permanent --service=myApp --add-source=192.168.1.1/32
+firewall-cmd --permanent --service=myApp --add-source=ipv:192.168.1.1/32
+firewall-cmd --permanent --service=myApp --add-source=ipv4:192.168.1.1/32
+firewall-cmd --permanent --service=myApp --add-source-port=5555/udp
+firewall-cmd --list-all
+firewall-cmd --add-service=myApp --permanent
+firewall-cmd --reload 
+firewall-cmd --list-all
+cp -rp /usr/lib/firewalld/services/ssh.xml /etc/firewalld/services/sshCustom.xml
+vi /etc/firewalld/services/sshCustom.xml
+firewall-cmd --permanent --new-service-from-file=/etc/firewalld/services/sshCustom.xml --name=sshCustom
+firewall-cmd --permanent --new-service-from-file=/etc/firewalld/services/sshCustom.xml --name=ssh2
+firewall-cmd --add-service=ssh2 --permanent 
+firewall-cmd --reload 
+firewall-cmd --list-all
+firewall-cmd --add-service=sshCustom --permanent 
+firewall-cmd --reload 
+firewall-cmd --list-all
+firewall-cmd --new-zone servers
+firewall-cmd --new-zone servers --permanent
+firewall-cmd --reload 
+firewall-cmd --zones
+firewall-cmd --get-zones
+firewall-cmd --zone servers 
+firewall-cmd --zone servers --list-all
+firewall-cmd --zone servers --add-service=ssh2
+firewall-cmd --zone servers --add-service=nfs
+firewall-cmd --zone servers --add-service=ssh2 --permanent 
+firewall-cmd --zone servers --add-service=nfs --add-service=ssh2
+firewall-cmd --zone servers --add-service=nfs --permanent 
+firewall-cmd --reload 
+firewall-cmd --zone servers --list-all
+firewall-cmd --zone servers --remove-service=nfs --permanent 
+firewall-cmd --reload 
+firewall-cmd --zone servers --list-all
+iptables -L -v -n
+systemctl status iptables
+history | awk '$1 > 791' | cut -c 8- > day3-history.txt
+cat day3-history.txt | wc -l
+cd lfs301_Nov/
+ls
+git status
+git add .
+git commit -m "Adding day3 history file"
+git git push
+git push
+ls
+ls -la
+vi day3-history.txt
+cd
+history
+history | awk '$1 > 791' | cut -c 8- > day3-history.txt
+history | awk '$1 > 791' | cut -c 8- > lfs301_Nov/day3-history.txt
