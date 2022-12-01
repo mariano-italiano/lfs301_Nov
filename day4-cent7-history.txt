@@ -990,3 +990,119 @@ git clone https://github.com/mariano-italiano/lfs301_Nov.git
 cd lfs301_Nov/
 history
 history | awk '$1 > 100' | cut -c 8- > day4-cent7-history.txt
+lxc list
+lxd init
+lxc image list images:
+lxc image list images: | grep -i ubuntu
+lxc image list images: | grep -e Ubuntu -e x86_64
+lxc image list images: | grep -i ubuntu | grep -i x86_64
+lxc launch images:c04cd74c37f0 xenial
+lxc list
+lxc delete -f xenial
+lxc list
+lxc launch images:e068c1ea3a84 ubuntu
+lxc list
+lxc launch images:e068c1ea3a84 bionic
+lxc list
+ip as
+ip a
+lxc exec bionic bash
+lxc list
+ssh 10.123.84.202
+lxc exec bionic bash
+ssh 10.123.84.202
+ iptables -L -v -n
+lxc list
+lxc exec bionic ubuntu
+lxc exec ubuntu bash
+lxc stop ubuntu
+lxc list
+lxc start ubuntu
+lxc list
+lxc profile list
+lxc profile copy default myWeb
+lxc profile edit myWeb
+lxc profile add ubuntu myWeb
+lxc profile list myWeb
+lxc stop ubuntu
+lxc start myWeb
+lxc start ubuntu
+lxc profile list
+lxc list
+lxc profile remove ubuntu myWeb
+lxc profile remove ubuntu default
+lxc profile add ubuntu myWeb
+lxc list
+lxc stop ubuntu
+lxc start ubuntu
+lxc list
+lxc profile edit myWeb
+lxc stop ubuntu
+lxc start ubuntu
+lxc list
+lxc config set ubuntu boot.autostart true
+lxc config get ubuntu
+lxc config get ubuntu boot.autostart
+lxc config get ubuntu snapshots.expiry
+lxc profile list
+nmtui
+clear
+curl -fsSL https://get.docker.com/ | sh
+systemctl status docker
+systemctl start docker
+systemctl status docker
+docker images ls
+docker container ls
+docker
+docker search httpd
+docker search mariadb
+docker search nginx
+docker pull docker.io/nginx
+docker run --help
+docker run -d -it --name web1 -p 8080:80 docker.io/nginx
+docker ps
+docker run -d -it docker.io/nginx
+docker ps
+docker ps -a
+docker stop elated_shirley
+docker ps -a
+docker ps
+docker inspect web1
+docker ps
+docker exec -it web1 bash
+docker ps
+docker search haproxy
+mkdir /container_files
+cd /container_files
+touch host file sth
+mkdir testdir1 testdir2
+ls -la
+docker exec -it web1 bash
+docker run -d -it --name web2 -v /container_files:/srv docker.io/nginx
+docker exec -it web2 bash
+ls -la
+docker run -d -it --name web3 -m 256m --memory-reservation=200m  docker.io/nginx
+docker ps
+docker inspect web3 | grep memory -i
+docker rm web3
+docker rm web3 -f
+docker ps
+cp -rp /lib/systemd/system/sshd.service /etc/systemd/system/myweb1.service
+vi /etc/systemd/system/myweb1.service
+which docker
+vi /etc/systemd/system/myweb1.service
+docker start -a
+docker start -help
+docker start
+docker start --help
+docker stop --help
+vi /etc/systemd/system/myweb1.service
+systemctl daemon-reload
+docker ps
+docker stop web1
+docker ps
+docker ps -a
+systemctl start myweb1.service
+systemctl status myweb1.service
+docker ps
+systemctl enable myweb1.service
