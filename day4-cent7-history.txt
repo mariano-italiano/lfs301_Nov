@@ -1106,3 +1106,78 @@ systemctl start myweb1.service
 systemctl status myweb1.service
 docker ps
 systemctl enable myweb1.service
+gentefoce
+getenforce
+sestatus
+ls -lZ
+ls -lZ /etc/chrony.conf
+touch /etc/newconf.conf
+ls -lZ /etc/newconf.conf
+ps -Z
+ps -Zaux
+id -Z
+dnf install setroubleshoot-server
+semanage port -l | grep -i ssh
+vi /etc/ssh/sshd_config
+systemctl restart sshd
+systemctl status sshd
+semanage port -l | grep -i ssh
+ps -Zaux | grep -i ssh
+semanage port -a -t ssh_port_t -p tcp 2222
+semanage port -l | grep -i ssh
+systemctl restart sshd
+systemctl status sshd
+dnf install httpd
+systemctl status httpd
+systemctl start httpd
+systemctl status httpd
+cd /var/www/html/
+ls -la
+ls -laZ
+vi index.html
+ls -laZ
+cd ..
+ls -laZ
+mkdir /web/content
+mkdir /web/content -p
+cd /web/content
+ls -laZ
+vi /etc/httpd/conf.d/myweb.conf
+ip a
+ip a a 192.168.1.180/24 dev ens33
+vi /etc/httpd/conf.d/myweb.conf
+vi /etc/hosts
+systemctl restart httpd
+telnet 192.168.1.180 80
+curl -v telnet://192.168.1.180:80
+touch index.html
+cp /var/www/html/index.html .
+vi index.html
+vi /etc/httpd/conf.d/myweb.conf
+less /var/log/messages
+sealert -l 1f4d4ca0-9061-4975-9457-703e00680d57
+sealert -l 1f4d4ca0-9061-4975-9457-703e00680d57 | less
+sealert -l 1f4d4ca0-9061-4975-9457-703e00680d57
+sealert -l 1f4d4ca0-9061-4975-9457-703e00680d57 |more
+ls -lZ /var/www/html/
+semanage fcontext -a -t httpd_sys_content_t "/web/content(/.*)?"
+ls -lZ
+restorecon -Rv /web/content/
+semanage fcontext -h
+semanage fcontext -l
+getsebool -h
+getsebool -a
+getsebool -a | grep -i nfs
+setsebool -h
+setsebool --help
+setsebool -P nfsd_anon_write on
+getsebool -a | grep -i nfs
+cd /var/log/audit/
+ls -la
+less audit.log
+cat audit.log | grep avc -
+cat audit.log | grep avc -i
+journalctl -t setroubleshoot
+ausearch -m AVC
+cd
+systemctl enable --now cockpit.socket
