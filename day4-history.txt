@@ -1,0 +1,67 @@
+iptables -L -v -n
+ping 192.168.1.82
+iptables -A OUTPUT -p icmp -d 192.168.1.82 -j ACCEPT 
+iptables -L -v -n
+ping 192.168.1.82
+iptables -I INPUT 2 -p icmp -s 192.168.1.82 -j ACCEPT 
+ping 192.168.1.82
+ping 192.168.1.83
+iptables -L -v -n
+ping centos8-2
+ping centos87
+ping centos7
+ping google.com
+vi /etc/hosts
+ping google.com
+iptables -A OUTPUT -p udp --dport 53 -j ACCEPT 
+iptables -A OUTPUT -p tcp --dport 53 -j ACCEPT 
+ping google.com
+iptables -A INPUT -p udp --dport 53 -j ACCEPT 
+iptables -A INPUT -p tcp --dport 53 -j ACCEPT 
+iptables -L -v -n
+ping google.com
+iptables-save > /etc/sysconfig/iptables
+vi /etc/sysconfig/iptables
+iptables-restore < /etc/sysconfig/iptables
+iptables -L -v -n
+ping google.com
+nslookup google.com
+iptables -A INPUT -p udp --dport 53 -j ACCEPT 
+iptables -A INPUT -p tcp --dport 53 -j ACCEPT 
+nslookup google.com
+ping google.com
+vi /etc/sysconfig/iptables
+iptables-restore < /etc/sysconfig/iptables
+ping google.com
+iptables -L -v -n
+iptables -A OUTPUT -j LOG
+tail -f /var/log/messages
+nslookup wp.pl
+tail -f /var/log/messages | grep 212.77.98.9
+iptables-save > /etc/sysconfig/iptables
+vi /etc/sysconfig/iptables
+systemctl disable --now iptables
+journalctl -b
+journalctl 
+journalctl -b
+systemcd-anal
+systemd-analyze 
+systemctl get-default 
+ls -la /lib/systemd/system/runlevel*.target
+systemctl get-default 
+systemctl set-default multi-user.target 
+ls -la /lib/systemd/system/default.target
+ls -l /etc/systemd/system/default.target
+cd /lib/systemd/system/
+ls -la *.service
+cd /etc/systemd/
+cd system
+ls -la
+init 3
+systemctl isolate graphical.target 
+systemctl isolate multi-user.target 
+systemctl set-default multi-user.target 
+cd
+cd lfs301_Nov/
+history
+history | awk '$1 > 997' | cut -c 8- > day4-history.txt
